@@ -19,6 +19,17 @@ public class Pais {
 	private String nombreCorto;
 	private List<Estado> estados;
 	
+	public Pais() {
+		super();
+	}
+	
+	public Pais(Long id, String nombre, String nombreCorto) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.nombreCorto = nombreCorto;
+	}
+
 	@Id
 	@Column(name = "ID", nullable = false)
 	public Long getId() {
