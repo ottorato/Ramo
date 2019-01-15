@@ -1,17 +1,18 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="ISO-8859-1"%>
+<%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c' %>
+
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="ISO-8859-1">
+	<meta charset="UTF-8">
 	<title>Rato Expert</title>
 	
 	<link rel="stylesheet" href="webjars/bootstrap/4.1.3/css/bootstrap.min.css">
-	<link rel="stylesheet" href="webjars/font-awesome/5.5.0/css/font-awesome.css"/>	
+	<link rel="stylesheet" href="webjars/font-awesome/5.5.0/css/all.css"/>	
 	<!--  <link rel="stylesheet" href="/webjars/font-awesome/css/all.css" /> -->
 </head>
 <body>
-	<script src="webjars/jquery/1.9.1/jquery.min.js"></script>
+	<script src="webjars/jquery/${jQueryVersion}/jquery.min.js"></script>
 	<script src="webjars/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 	<script src="webjars/angularjs/1.7.4/angular.js"></script>
 	
@@ -63,5 +64,13 @@
 		</div>
 
     </main>
+    
+    <h1>fab fa-angellist</h1>
+
+	<i class='fab fa-angellist'></i>
+	<i class='fab fa-angellist' style='font-size:24px'></i>
+	<i class='fab fa-angellist' style='font-size:36px'></i>
+	<i class='fab fa-angellist' style='font-size:48px;color:red'></i>
+	<br>
 </body>
 </html>

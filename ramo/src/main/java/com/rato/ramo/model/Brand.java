@@ -1,75 +1,73 @@
 package com.rato.ramo.model;
 
+import java.util.List;
+
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "ESTADO")
-public class Estado {
-	
+@Table(name = "BRAND")
+public class Brand {
 	private Long id;
 	private String nombre;
-	private String nombreCorto;
+	private String OUI;
 	private Pais pais;
+	private List<Model> modelos;
 	
-	
-
-	public Estado() {
-		super();
-	}
-
-	public Estado(Long id, String nombre, String nombreCorto, Pais pais) {
-		super();
-		this.id = id;
-		this.nombre = nombre;
-		this.nombreCorto = nombreCorto;
-		this.pais = pais;
-	}
-
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "ID", nullable = false)
 	public Long getId() {
 		return id;
 	}
-
 	public void setId(Long id) {
 		this.id = id;
 	}
-
+	
 	@Basic
 	@Column(name = "NOMBRE", nullable = false)
 	public String getNombre() {
 		return nombre;
 	}
-
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
+	
 	@Basic
-	@Column(name = "NOMBRECORTO")
-	public String getNombreCorto() {
-		return nombreCorto;
+	@Column(name = "OUI", nullable = false)
+	public String getOUI() {
+		return OUI;
 	}
-
-	public void setNombreCorto(String nombreCorto) {
-		this.nombreCorto = nombreCorto;
+	public void setOUI(String oUI) {
+		OUI = oUI;
 	}
-
+	
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="PAIS_ID")
 	public Pais getPais() {
 		return pais;
 	}
-
 	public void setPais(Pais pais) {
 		this.pais = pais;
 	}
-
+	
+	@OneToMany(targetEntity=Model.class, mappedBy = "brand", cascade = CascadeType.ALL, fetch=FetchType.LAZY)
+	public List<Model> getModelos() {
+		return modelos;
+	}
+	public void setModelos(List<Model> modelos) {
+		this.modelos = modelos;
+	}
+	
+	
 }
