@@ -51,8 +51,8 @@
         .when('/CP',{
         	 templateUrl: 'view/template/main.html'
         })
-        .when('/modems',{
-        	 templateUrl: 'view/template/modems.html'
+        .when('/paises',{
+        	 templateUrl: 'view/template/paises.html'
         })
         .otherwise({
             redirectTo: '/'

@@ -32,6 +32,9 @@
 	<!-- Block styles, application spinner css -->
 	<link rel="stylesheet" href="webjars/angular-block-ui/0.2.2/dist/angular-block-ui.min.css" />
 	<!-- Menú styles -->
+	<link href='<c:url value="/ui/bower_components/metisMenu/dist/metisMenu.min.css"/>' rel="stylesheet" type="text/css" media="screen"/>
+    <link href='<c:url value="/ui/css/responsive.css"/>' rel="stylesheet" type="text/css" media="screen"/>
+    <link href='<c:url value="/ui/dist/css/sb-admin-2.css"/>' rel="stylesheet" type="text/css" media="screen"/>
 	<link href='<c:url value="/ui/bower_components/ng-bootstrap-submenu/ng-bootstrap-submenu.min.css"/>' rel="stylesheet" type="text/css" media="screen"/>
 	<!-- Baloon (logger) styles -->
 	<link href='<c:url value="/ui/css/mensajes/toastr.css"/>' rel="stylesheet" type="text/css" media="screen"/>
@@ -61,6 +64,8 @@
 	
 	<script src="webjars/bootstrap/${bootstrapVersion}/js/bootstrap.min.js"></script>
 	
+	<!-- DOJO -->
+	<script src="webjars/dojo/1.10.4/dojo/dojo.js"></script>
 	<script src="webjars/angular-ui-mask/1.6.8/src/mask.js"></script>
 	<script src="webjars/angular-block-ui/0.2.2/dist/angular-block-ui.js"></script>
 	<script src="webjars/angular-ui-bootstrap/2.5.0/ui-bootstrap.js"></script>
@@ -78,6 +83,6 @@
 	<!-- Controllers -->
 	<script src='<c:url value="/ui/js/angularApp/controller/menu.js"/>' charset="UTF-8"></script>
 	<script src='<c:url value="/ui/js/angularApp/controller/dashBoard.js"/>' charset="UTF-8"></script>
-	<script src='<c:url value="/ui/js/angularApp/controller/modems.js"/>' charset="UTF-8"></script>
+	<script src='<c:url value="/ui/js/angularApp/controller/paises.js"/>' charset="UTF-8"></script>
 </body>
 </html>

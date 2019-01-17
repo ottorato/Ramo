@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "PAIS")
 public class Pais {
@@ -58,6 +60,7 @@ public class Pais {
 	}
 	
 	@OneToMany(targetEntity=Estado.class, mappedBy = "pais", cascade = CascadeType.ALL, fetch=FetchType.EAGER)
+	@JsonIgnore
 	public List<Estado> getEstados() {
 		return estados;
 	}

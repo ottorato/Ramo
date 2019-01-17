@@ -33,8 +33,8 @@ public class EstadoSerivceImpl implements EstadoSerivce {
 
 	@Override
 	public List<Estado> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Estado> estados = estadoRepository.findAll();
+		return estados;
 	}
 
 }

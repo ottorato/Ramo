@@ -20,7 +20,7 @@ public class MainController {
     @Autowired
     private PaisService paisService;
 
-	@RequestMapping(value = {"/", "/CP", "/modems"}, method = RequestMethod.GET)
+	@RequestMapping(value = {"/", "/CP", "/paises"}, method = RequestMethod.GET)
 	public ModelAndView main() {
 		logger.info("Ctrl working fine.");
 		Pais pais = new Pais(2l, "United States", "USA");

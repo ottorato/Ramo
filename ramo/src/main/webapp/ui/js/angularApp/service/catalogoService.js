@@ -8,12 +8,18 @@
     	
 	    	var service = {
 				listaPaises: listaPaises,
+				listaEstadosPaises: listaEstadosPaises,
 				guardarEstado: guardarEstado
 	    	};
 	    	return service;
 	    	
 	    	function listaPaises() {
 	            var res = commonService.ajaxGetRequets('/catalogo/listaPaises');
+	            return res;
+	        }
+	    	
+	    	function listaEstadosPaises() {
+	            var res = commonService.ajaxGetRequets('/catalogo/listaEstadosPaises');
 	            return res;
 	        }
 	    	

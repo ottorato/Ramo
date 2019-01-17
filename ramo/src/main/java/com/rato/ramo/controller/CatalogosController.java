@@ -1,6 +1,8 @@
 package com.rato.ramo.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,7 +23,7 @@ import com.rato.ramo.service.PaisService;
 @Controller
 @RequestMapping("/catalogo")
 public class CatalogosController {
-private final Logger logger = LoggerFactory.getLogger(this.getClass());
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
     
     @Autowired
     private PaisService paisService;
@@ -31,10 +33,26 @@ private final Logger logger = LoggerFactory.getLogger(this.getClass());
     
     @ResponseBody
     @RequestMapping(value="/listaPaises", method = RequestMethod.GET)
-    public RespuestaAngularDTO findAll() {
+    public RespuestaAngularDTO listaPaises() {
     	logger.info("Recuperando países");
     	List<Pais> paises = paisService.findAll();
     	RespuestaAngularDTO respuesta = new RespuestaAngularDTO(0, "", paises);
+    	
+    	return respuesta;
+    }
+    
+    @ResponseBody
+    @RequestMapping(value="/listaEstadosPaises", method = RequestMethod.GET)
+    public RespuestaAngularDTO listaEstadosPaises() {
+    	logger.info("Recuperando estados y países...");
+    	Map<String, Object> mapa = new HashMap<>();
+    	
+    	List<Pais> paises = paisService.findAll();
+    	List<Estado> estados = estadoSerivce.findAll();
+    	mapa.put("paises", paises);
+    	mapa.put("estados", estados);
+    	
+    	RespuestaAngularDTO respuesta = new RespuestaAngularDTO(0, "", mapa);
     	
     	return respuesta;
     }

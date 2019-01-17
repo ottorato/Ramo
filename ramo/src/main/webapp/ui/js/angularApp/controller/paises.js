@@ -8,7 +8,7 @@
         var logSuccess = getLogFn(controllerId, 'success');
         var logError = getLogFn(controllerId, 'error');
         
-        vm.windowTitle = "CPEs";
+        vm.windowTitle = "Catálogos";
         vm.DEFAULT_OPTION_SELECT = "Take your pick";
         
         vm.selTab1 = 1;
@@ -23,18 +23,11 @@
             return selected;
         };
         
-        vm.paises = [
-        	{
-        		id: 1,
-        		nombre: "México"
-        	}, {
-        		id: 2,
-        		nombre: "USA"
-        	}
-        ];
+        vm.estados = [];
+        vm.paises = [];
         
         vm.gridOptions = new uiGridConfiguration();
-        vm.gridOptions.enableFiltering = true;
+        vm.gridOptions.enableFiltering = false;
         vm.gridOptions.multiSelect = false;
         vm.gridOptions.paginationPageSizes = [ 25, 50, 75, 100];
         vm.gridOptions.paginationPageSize = 25;
@@ -50,46 +43,49 @@
             });
         };
         
+        var botones = '<div class="text-center">' +
+        '<a href="#" title="Editar la Solicitud" ng-show="true" ng-click="grid.appScope.goEdicion(row.entity.cto)"> <i class="fa fa-pencil "></i></a>' +
+        '<a href="#" title="Cancelar Solicitud" ng-click="grid.appScope.goCancelar(row.entity.cto)"> <i class="fa fa-close "></i></a>' +
+        '</div>';
+        
         vm.gridOptions.columnDefs = [
             {
-                field: 'id',
-                displayName: 'ID',
-                width: '6%'
-            }, {
-            	field: 'uen.sapId',
-                displayName: 'SAP ID',
+                field: 'pais.id',
+                displayName: 'Id País',
                 width: '10%'
             }, {
-            	field: 'uen.nombre',
-                displayName: 'Nombre',
-                width: '35%'
+            	field: 'pais.nombre',
+                displayName: 'Nombre País',
+                width: '30%'
             }, {
-            	name: 'escenario.descripcion',
-            	displayName: 'Escenario',
-                width: '19%'
-            }, {
-            	name: 'porcentaje',
-            	displayName: '% Recuperación',
+            	field: 'id',
+                displayName: 'Id Estado',
                 width: '10%'
             }, {
-            	name: 'dias',
-            	displayName: 'Días Anteriores',
-                width: '10%'
+            	name: 'nombre',
+            	displayName: 'Nombre Estado',
+                width: '30%'
+            }, {
+            	name: 'nombreCorto',
+            	displayName: '',
+                width: '15%'
             }, {
                 name: 'del',
             	displayName: '',
                 enableColumnMenu: false,
                 enableHiding: false,
                 enableFiltering: false,
-                width: '10%',
-                cellTemplate: '<div class="text-center"></div>'
+                width: '5%',
+                cellTemplate: botones
             }
         ];
         
         function listaPaises() {
-        	catalogoService.listaPaises().then(function (data) {
+        	catalogoService.listaEstadosPaises().then(function (data) {
         		if (data) {
-        			vm.paises = data.objeto;
+        			vm.estados = data.objeto.estados;
+        			vm.paises = data.objeto.paises;
+        			vm.gridOptions.data = vm.estados;
         		}
         	})
         }

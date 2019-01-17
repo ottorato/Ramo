@@ -5,28 +5,24 @@
     	function (commonService, $interval, $scope, $window, $uibModal) {
         var menuCtrl = this;
         console.log("Getting menues");
-        menuCtrl.getMenus = getMenus();
+        menuCtrl.menuItems = getMenus();
 
         function getMenus() {
             var menus = [
             	{
-            		display: "Models",
-            		href: "/modems",
+            		display: "Catálogos",
+            		href: "#",
             		children: [
-            		    {
-            		      display: "Alta",
-                  		href: "/modems",
-                  		children: []
-            		    }, {
-            		      display: "Baja",
-                  		href: "/modems",
-                  		children: []
-            		    }
-            		  ]
-            	}, {
-            	  display: "Países",
-            		href: "/modems",
-            		children: []
+                    	{
+                    		display: "Estados",
+                    		href: "/paises",
+                    		children: []
+                    	}, {
+                    	  display: "Países",
+                    		href: "/paises",
+                    		children: []
+                    	}
+                    ]
             	}
             ];
             return menus;
